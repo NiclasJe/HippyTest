@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bridge</title>
+  <script>
+    function getTrackIdFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("track");
+    }
+
+    function launch() {
+      const trackId = getTrackIdFromUrl();
+      if (!trackId) {
+        document.body.innerHTML = "<p>Non, or incorrect track</p>";
+        return;
+      }
+
+      window.location.href = `spotify://track/${trackId}`;
+
+      setTimeout(() => {
+        window.location.href = "hippy://open";
+      }, 3000);
+    }
+  </script>
+</head>
+<body onload="launch()">
+  <p>Starting Spotify...</p>
+</body>
+</html>
