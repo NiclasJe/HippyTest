@@ -19,7 +19,10 @@
 
       setTimeout(() => {
         window.location.href = "hippy://open";
-      }, 1000);
+        setTimeout(() => {
+          window.close();
+        }, 500);
+      }, 3000);
     }
   </script>
 </head>
